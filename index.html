@@ -189,9 +189,7 @@
 
                     $$('#leftPanelContent ul').append(infoHtml);
 
-                    $$(`#${id}`).on(
-                        "click",
-                        function(el) {
+                    $$(`#${id}`).on("click", function (el) {
                             if (currentEl !== null) {
                                 currentEl.children('.item-text').css({'display': '-webkit-box'});
                             }
