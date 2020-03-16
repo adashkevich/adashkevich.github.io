@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/js/framework7.bundle.js"></script>
+    <script src="covid19_data.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/css/framework7.bundle.css">
+
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/4/core.js"></script>
+    <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>
+    <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+    <style>
+        /* Limit resizable panel width */
+        .panel {
+            min-width: 100px;
+            max-width: 1800vw;
+        }
+
+        #leftPanelContent .item-subtitle {
+            white-space: normal;
+        }
+
+        #leftPanelContent .item-text {
+            max-height: fit-content;
+        }
+
+        #countryInfoPanel {
+            overflow-y: auto;
+        }
+
+        .md {
+            --f7-panel-width: 420px;
+        }
+        .lg {
+            --f7-panel-width: 540px;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <div id="countryInfoPanel" class="panel panel-left panel-reveal panel-resizable panel-init">
+        <div class="block">
+            <p>
+                <button class="col button button-raised panel-close">Закрыть</button>
+            </p>
+            <div id="leftPanelContent">
+                <div class="list media-list">
+                    <ul></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="panel panel-right panel-right-1 panel-cover panel-resizable panel-init">-->
+    <!--<div class="block">-->
+    <!--<p>Right Panel content here</p>-->
+    <!--<p><a class="panel-close" href="#">Close me</a></p>-->
+    <!--<p><a class="panel-open" href="#" data-panel=".panel-left">Open Left Panel</a></p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="panel panel-right panel-right-2 panel-cover panel-init theme-dark">-->
+    <!--<div class="page">-->
+    <!--<div class="block">-->
+    <!--<p>Here comes another 3rd panel.</p>-->
+    <!--<p><a class="panel-close" href="#">Close me</a></p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="view view-main view-init">
+        <div class="page">
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="title">Карта карантина COVID-19</div>
+                    <div class="right"></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <div id="covid19map" style="width: 100%; height: 100%"></div>
+                <!--<div class="block block-strong">-->
+                <!--<p><a class="button panel-open" href="#" data-panel=" .panel-left">Open Left Panel</a></p>-->
+                <!--<p><a class="button panel-open" href="#" data-panel=".panel-right-1">Open Right Panel</a></p>-->
+                <!--<p><a class="button panel-open" href="#" data-panel=".panel-right-2">Open Another Panel</a></p>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="countryInfoItem">
+    <li>
+        <a href="#" class="item-link item-content">
+            <div class="item-inner">
+                <div class="item-subtitle">{title}</div>
+                <div class="item-text">{description}</div>
+            </div>
+        </a>
+    </li>
+</template>
+
+<script>
+    let $$ = Dom7;
+    let app = new Framework7({root: '#app'});
+    const NO_DATA = 'Нет данных';
+
+    am4core.ready(function () {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // Create map instance
+        var chart = am4core.create("covid19map", am4maps.MapChart);
+
+        // Set map definition
+        chart.geodata = am4geodata_worldLow;
+
+        // Set projection
+        chart.projection = new am4maps.projections.Miller();
+
+        // Series for World map
+        var worldSeries = chart.series.push(new am4maps.MapPolygonSeries());
+        worldSeries.exclude = ["AQ"];
+        worldSeries.useGeodata = true;
+
+        var polygonTemplate = worldSeries.mapPolygons.template;
+        polygonTemplate.tooltipText = "{name}";
+        polygonTemplate.fill = chart.colors.getIndex(0);
+        polygonTemplate.nonScalingStroke = true;
+
+
+        worldSeries.data = covid19Data;
+
+        // var legend = new am4charts.Legend();
+        // legend.parent = chart.chartContainer;
+        // legend.background.fill = am4core.color("#000");
+        // legend.background.fillOpacity = 0.15;
+        // legend.width = 220;
+        // legend.valign = "bottom"
+        // legend.align = "left";
+        // legend.data = [{
+        //     "name": "Closed",
+        //     "fill": COLOR_RED
+        // }, {
+        //     "name": "Partially closed",
+        //     "fill": COLOR_YELLOW
+        // }, {
+        //     "name": "Free",
+        //     "fill": COLOR_BLUE
+        // }];
+
+        polygonTemplate.propertyFields.fill = "fill";
+        let infoItemTemplate = $$('#countryInfoItem').html();
+
+        polygonTemplate.events.on("hit", function (ev) {
+            // zoom to an object
+            //ev.target.series.chart.zoomToMapObject(ev.target);
+            $$('#leftPanelContent ul').empty();
+
+            if (ev.target.dataItem.dataContext.info) {
+                ev.target.dataItem.dataContext.info.forEach((info) => {
+                    $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', info.title).replace('{description}', info.description || ''));
+                });
+            } else {
+                $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', NO_DATA).replace('{description}', ''));
+            }
+            app.panel.open('#countryInfoPanel', true);
+        });
+    });
+</script>
+</body>
+</html>
