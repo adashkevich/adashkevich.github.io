@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta charset="UTF-8">
+    <title>COVID-19 Global Map Feedback</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/js/framework7.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.5.0/css/framework7.bundle.css">
+
+    <style>
+        .page-content {
+            text-align: center;
+        }
+
+        .feedback-from-info {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <div class="view view-main view-init">
+        <div class="page">
+            <div class="navbar">
+                <div class="navbar-bg"></div>
+                <div class="navbar-inner">
+                    <div class="left"></div>
+                    <div class="title">Карта карантина COVID-19</div>
+                    <div class="right"><a class="link external" href="index.html">Назад</a></div>
+                </div>
+            </div>
+            <div class="page-content">
+                <h1>Помогите сделать карту лучше</h1>
+                <p class="feedback-from-info">Добавьте/исправьте карту через <a target="_blank" class="link external" href="https://t.me/covid19map">Telegram</a> или форму обратной связи</p>
+                <script src="https://yastatic.net/q/forms-frontend-ext/_/embed.js"></script>
+                <iframe src="https://forms.yandex.ru/u/5e6fe47752178d0d239df112/?iframe=1" frameborder="0"
+                        name="ya-form-5e6fe47752178d0d239df112" width="650"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    let app = new Framework7({root: '#app'});
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] = m[i] || function () {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        m[i].l = 1 * new Date();
+        k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+    })
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(61002979, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true
+    });
+</script>
+<noscript>
+    <div><img src="https://mc.yandex.ru/watch/61002979" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+</body>
+</html>
