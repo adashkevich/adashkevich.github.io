@@ -16,6 +16,7 @@
     <!-- Resources -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
@@ -138,23 +139,23 @@
 
         worldSeries.data = covid19Data;
 
-        // var legend = new am4charts.Legend();
-        // legend.parent = chart.chartContainer;
-        // legend.background.fill = am4core.color("#000");
-        // legend.background.fillOpacity = 0.15;
-        // legend.width = 220;
-        // legend.valign = "bottom"
-        // legend.align = "left";
-        // legend.data = [{
-        //     "name": "Closed",
-        //     "fill": COLOR_RED
-        // }, {
-        //     "name": "Partially closed",
-        //     "fill": COLOR_YELLOW
-        // }, {
-        //     "name": "Free",
-        //     "fill": COLOR_BLUE
-        // }];
+        var legend = new am4charts.Legend();
+        legend.parent = chart.chartContainer;
+        legend.background.fill = am4core.color("#000");
+        legend.background.fillOpacity = 0.15;
+        legend.width = 220;
+        legend.valign = "bottom"
+        legend.align = "left";
+        legend.data = [{
+            "name": "Closed",
+            "fill": COLOR_RED
+        }, {
+            "name": "Partially closed",
+            "fill": COLOR_YELLOW
+        }, {
+            "name": "Free",
+            "fill": COLOR_BLUE
+        }];
 
         polygonTemplate.propertyFields.fill = "fill";
         let infoItemTemplate = $$('#countryInfoItem').html();
