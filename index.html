@@ -26,6 +26,7 @@
     <!-- Resources -->
     <script src="https://www.amcharts.com/lib/4/core.js"></script>
     <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+    <script src="https://www.amcharts.com/lib/4/charts.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/geodata/usaLow.js"></script>
     <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
@@ -39,10 +40,6 @@
 
         #leftPanelContent .item-subtitle {
             white-space: normal;
-        }
-
-        #leftPanelContent .item-text {
-            max-height: fit-content;
         }
 
         #countryInfoPanel {
@@ -112,7 +109,7 @@
 <template id="countryInfoItem">
     <li>
         <a href="#" class="item-link item-content">
-            <div class="item-inner">
+            <div class="item-inner" id="{id}">
                 <div class="item-subtitle">{title}</div>
                 <div class="item-text">{description}</div>
             </div>
@@ -153,23 +150,23 @@
 
         worldSeries.data = covid19Data;
 
-        // var legend = new am4charts.Legend();
-        // legend.parent = chart.chartContainer;
-        // legend.background.fill = am4core.color("#000");
-        // legend.background.fillOpacity = 0.15;
-        // legend.width = 220;
-        // legend.valign = "bottom"
-        // legend.align = "left";
-        // legend.data = [{
-        //     "name": "Closed",
-        //     "fill": COLOR_RED
-        // }, {
-        //     "name": "Partially closed",
-        //     "fill": COLOR_YELLOW
-        // }, {
-        //     "name": "Free",
-        //     "fill": COLOR_BLUE
-        // }];
+        var legend = new am4charts.Legend();
+        legend.parent = chart.chartContainer;
+        legend.background.fill = am4core.color("#000");
+        legend.background.fillOpacity = 0.15;
+        legend.width = 220;
+        legend.valign = "bottom"
+        legend.align = "left";
+        legend.data = [{
+            "name": "Closed",
+            "fill": COLOR_RED
+        }, {
+            "name": "Partially closed",
+            "fill": COLOR_YELLOW
+        }, {
+            "name": "Free",
+            "fill": COLOR_BLUE
+        }];
 
         polygonTemplate.propertyFields.fill = "fill";
         let infoItemTemplate = $$('#countryInfoItem').html();
@@ -180,8 +177,31 @@
             $$('#leftPanelContent ul').empty();
 
             if (ev.target.dataItem.dataContext.info) {
-                ev.target.dataItem.dataContext.info.forEach((info) => {
-                    $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', info.title).replace('{description}', info.description || ''));
+                let currentEl = null;
+
+                ev.target.dataItem.dataContext.info.forEach((info, index) => {
+                    let id = `countryinfoitem_${index}`;
+
+                    let infoHtml = infoItemTemplate
+                    .replace('{title}', info.title)
+                    .replace('{description}', info.description || '')
+                    .replace('{id}', id);
+
+                    $$('#leftPanelContent ul').append(infoHtml);
+
+                    $$(`#${id}`).on(
+                        "click",
+                        function(el) {
+                            if (currentEl !== null) {
+                                currentEl.children('.item-text').css({'display': '-webkit-box'});
+                            }
+
+                            currentEl = $$(this);
+
+                            currentEl.children('.item-text').css({'display': 'initial'});
+                        }
+                    );
+
                 });
             } else {
                 $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', NO_DATA).replace('{description}', ''));
