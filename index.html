@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">`
 
     <script data-ad-client="ca-pub-3753181130274985" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
@@ -37,12 +37,24 @@
             overflow-y: auto;
         }
 
-        .md {
-            --f7-panel-width: 420px;
+        @media screen and (max-width: 420px) {
+            :root {
+                --f7-panel-width: calc(100% - 40px);
+            }
         }
-        .lg {
-            --f7-panel-width: 540px;
+
+        @media screen and (min-width: 421px) and (max-width: 576px) {
+            :root {
+                --f7-panel-width: 360px;
+            }
         }
+
+        @media screen and (min-width: 577px) {
+            :root {
+                --f7-panel-width: 450px;
+            }
+        }
+
     </style>
 
     <meta charset="UTF-8">
