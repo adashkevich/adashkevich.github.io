@@ -31,10 +31,6 @@
             white-space: normal;
         }
 
-        #leftPanelContent .item-text {
-            max-height: fit-content;
-        }
-
         #countryInfoPanel {
             overflow-y: auto;
         }
@@ -101,7 +97,7 @@
 <template id="countryInfoItem">
     <li>
         <a href="#" class="item-link item-content">
-            <div class="item-inner">
+            <div class="item-inner" id="countryinfoitem_{id}">
                 <div class="item-subtitle">{title}</div>
                 <div class="item-text">{description}</div>
             </div>
@@ -169,8 +165,29 @@
             $$('#leftPanelContent ul').empty();
 
             if (ev.target.dataItem.dataContext.info) {
-                ev.target.dataItem.dataContext.info.forEach((info) => {
-                    $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', info.title).replace('{description}', info.description || ''));
+                let currentEl = null;
+
+                ev.target.dataItem.dataContext.info.forEach((info, index) => {
+                    let infoHtml = infoItemTemplate
+                    .replace('{title}', info.title)
+                    .replace('{description}', info.description || '')
+                    .replace('{id}', index);
+
+                    $$('#leftPanelContent ul').append(infoHtml);
+
+                    $$("#countryinfoitem_"+index).on(
+                        "click",
+                        function(el) {
+                            if (currentEl !== null) {
+                                currentEl.children('.item-text').css({'display': '-webkit-box'});
+                            }
+
+                            currentEl = $$(this);
+
+                            currentEl.children('.item-text').css({'display': 'initial'});
+                        }
+                    );
+
                 });
             } else {
                 $$('#leftPanelContent ul').append(infoItemTemplate.replace('{title}', NO_DATA).replace('{description}', ''));
