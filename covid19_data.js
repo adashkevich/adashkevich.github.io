@@ -8,6 +8,8 @@ let covid19Data = [
         id: "PL",
         name: "Польша",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Запрет на въезд для иностранцев с 15 марта"
@@ -41,6 +43,8 @@ let covid19Data = [
         id: "LT",
         name: "Литва",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Запрет на въезд иностранцам",
@@ -107,6 +111,8 @@ let covid19Data = [
         id: "LV",
         name: "Латвия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title:
@@ -140,6 +146,8 @@ let covid19Data = [
         id: "EE",
         name: "Эстония",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "В страну смогут въехать только граждане Эстонии",
@@ -205,6 +213,8 @@ let covid19Data = [
         id: "IT",
         name: "Италия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "C 10 марта ввели карантин",
@@ -231,6 +241,7 @@ let covid19Data = [
         id: "CY",
         name: "Кипр",
         fill: COLOR_RED,
+        eu: true,
         info: [
             {
                 title: "С 15 марта на две недели закроет въезд для иностранцев",
@@ -306,6 +317,7 @@ let covid19Data = [
         id: "NO",
         name: "Норвегия",
         fill: COLOR_RED,
+        schengen: true,
         info: [
             {
                 title: "С 16 марта закрывают все границы"
@@ -323,6 +335,8 @@ let covid19Data = [
         id: "FR",
         name: "Франция",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title:
@@ -348,6 +362,8 @@ let covid19Data = [
         id: "CZ",
         name: "Чехия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "C 16 марта полностью закрывает свои границы",
@@ -363,6 +379,8 @@ let covid19Data = [
         id: "SK",
         name: "Словакия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Словакия  закрыла въезд для иностранцев из-за коронавируса"
@@ -376,6 +394,8 @@ let covid19Data = [
         id: "HU",
         name: "Венгрия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Венгрия  закрыла въезд для иностранцев из-за коронавируса"
@@ -399,6 +419,8 @@ let covid19Data = [
         id: "SE",
         name: "Швеция",
         fill: COLOR_BLUE,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Запрет на массовые мероприятия с участием более 500 человек"
@@ -431,6 +453,8 @@ let covid19Data = [
         id: "MT",
         name: "Мальта",
         fill: COLOR_YELLOW,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Обязательный карантин для всех въезжающих"
@@ -441,6 +465,7 @@ let covid19Data = [
         id: "RO",
         name: "Румыния",
         fill: COLOR_YELLOW,
+        eu: true,
         info: [
             {
                 title:
@@ -450,8 +475,9 @@ let covid19Data = [
     },
     {
         id: "CH",
-        name: "Швейцаря",
+        name: "Швейцария",
         fill: COLOR_YELLOW,
+        schengen: true,
         info: [
             {
                 title: "Швейцария частично закрыла границу с Италией из-за коронавируса"
@@ -462,6 +488,8 @@ let covid19Data = [
         id: "ES",
         name: "Испания",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title:
@@ -474,8 +502,19 @@ let covid19Data = [
     {
         id: "DE",
         name: "Германия",
+        schengen: true,
+        eu: true,
         fill: COLOR_RED,
         info: [
+            {
+                title: "Граждане должны отказаться от поездок внутри и за пределы страны",
+                description: "ночевки в туристических целях недопустимы",
+                datetime: "2020-03-16"
+            },
+            {
+                title:  "Закрыты магазины, бары, рестораны, театры, музеи, школы, университеты, спортклубы и других заведений",
+                datetime: "2020-03-16"
+            },
             {
                 title: "ФРГ частично закрыла границы с пятью европейскими странами",
                 description:
@@ -486,6 +525,8 @@ let covid19Data = [
     {
         id: "DK",
         name: "Дания",
+        schengen: true,
+        eu: true,
         fill: COLOR_RED,
         info: [
             {
@@ -497,6 +538,8 @@ let covid19Data = [
         id: "SI",
         name: "Словения",
         fill: COLOR_YELLOW,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Словения закрыла границу с Италией"
@@ -527,6 +570,8 @@ let covid19Data = [
         id: "AT",
         name: "Австрия",
         fill: COLOR_RED,
+        schengen: true,
+        eu: true,
         info: [
             {
                 title: "Австрия закрыла въезд для иностранцев из-за коронавируса"
@@ -537,6 +582,7 @@ let covid19Data = [
         id: "HR",
         name: "Хорватия",
         fill: COLOR_YELLOW,
+        eu: true,
         info: [
             {
                 title: "Обязательный каранти для вьезжающих"
@@ -561,10 +607,10 @@ let covid19Data = [
 {id: 'BB', name: 'Барбадос', fill:  COLOR_GRAY, info: []},
 {id: 'BH', name: 'Бахрейн', fill:  COLOR_GRAY, info: []},
 {id: 'BZ', name: 'Белиз', fill:  COLOR_GRAY, info: []},
-{id: 'BE', name: 'Бельгия', fill:  COLOR_GRAY, info: []},
+{id: 'BE', name: 'Бельгия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'BJ', name: 'Бенин', fill:  COLOR_GRAY, info: []},
 {id: 'BM', name: 'Бермудские острова', fill:  COLOR_GRAY, info: []},
-{id: 'BG', name: 'Болгария', fill:  COLOR_GRAY, info: []},
+{id: 'BG', name: 'Болгария', fill:  COLOR_GRAY, eu: true, info: []},
 {id: 'BO', name: 'Боливия', fill:  COLOR_GRAY, info: []},
 {id: 'BA', name: 'Босния и Герцеговина', fill:  COLOR_GRAY, info: []},
 {id: 'BW', name: 'Ботсвана', fill:  COLOR_GRAY, info: []},
@@ -592,12 +638,12 @@ let covid19Data = [
 {id: 'GN', name: 'Гвинея', fill:  COLOR_GRAY, info: []},
 {id: 'GG', name: 'Гернси', fill:  COLOR_GRAY, info: []},
 {id: 'GI', name: 'Гибралтар', fill:  COLOR_GRAY, info: []},
-{id: 'NL', name: 'Нидерланды', fill:  COLOR_GRAY, info: []},
+{id: 'NL', name: 'Нидерланды', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'HN', name: 'Гондурас', fill:  COLOR_GRAY, info: []},
 {id: 'HK', name: 'Гонконг', fill:  COLOR_GRAY, info: []},
 {id: 'GD', name: 'Гренада', fill:  COLOR_GRAY, info: []},
 {id: 'GL', name: 'Гренландия', fill:  COLOR_GRAY, info: []},
-{id: 'GR', name: 'Греция', fill:  COLOR_GRAY, info: []},
+{id: 'GR', name: 'Греция', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'GU', name: 'Гуам', fill:  COLOR_GRAY, info: []},
 {id: 'CD', name: 'Демократическая Республика Конго', fill:  COLOR_GRAY, info: []},
 {id: 'JE', name: 'Джерси', fill:  COLOR_GRAY, info: []},
@@ -610,11 +656,11 @@ let covid19Data = [
 {id: 'ZW', name: 'Зимбабве', fill:  COLOR_GRAY, info: []},
 {id: 'IN', name: 'Индия', fill:  COLOR_GRAY, info: []},
 {id: 'ID', name: 'Индонезия', fill:  COLOR_GRAY, info: []},
-{id: 'JO', name: 'Иордания', fill:  COLOR_GRAY, info: []},
+{id: 'JO', name: 'Иордания', fill:  COLOR_GRAY, schengen: true, info: []},
 {id: 'IQ', name: 'Ирак', fill:  COLOR_GRAY, info: []},
 {id: 'IR', name: 'Иран', fill:  COLOR_GRAY, info: []},
-{id: 'IE', name: 'Ирландия', fill:  COLOR_GRAY, info: []},
-{id: 'IS', name: 'Исландия', fill:  COLOR_GRAY, info: []},
+{id: 'IE', name: 'Ирландия', fill:  COLOR_GRAY, eu: true, info: []},
+{id: 'IS', name: 'Исландия', fill:  COLOR_GRAY, schengen: true, info: []},
 {id: 'YE', name: 'Йемен', fill:  COLOR_GRAY, info: []},
 {id: 'CV', name: 'Кабо-Верде', fill:  COLOR_GRAY, info: []},
 {id: 'KY', name: 'Каймановы острова', fill:  COLOR_GRAY, info: []},
@@ -640,8 +686,8 @@ let covid19Data = [
 {id: 'LR', name: 'Либерия', fill:  COLOR_GRAY, info: []},
 {id: 'LB', name: 'Ливан', fill:  COLOR_GRAY, info: []},
 {id: 'LY', name: 'Ливия', fill:  COLOR_GRAY, info: []},
-{id: 'LI', name: 'Лихтенштейн', fill:  COLOR_GRAY, info: []},
-{id: 'LU', name: 'Люксембург', fill:  COLOR_GRAY, info: []},
+{id: 'LI', name: 'Лихтенштейн', fill:  COLOR_GRAY, schengen: true, info: []},
+{id: 'LU', name: 'Люксембург', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'MU', name: 'Маврикий', fill:  COLOR_GRAY, info: []},
 {id: 'MR', name: 'Мавритания', fill:  COLOR_GRAY, info: []},
 {id: 'MG', name: 'Мадагаскар', fill:  COLOR_GRAY, info: []},
@@ -691,7 +737,7 @@ let covid19Data = [
 {id: 'PY', name: 'Парагвай', fill:  COLOR_GRAY, info: []},
 {id: 'PE', name: 'Перу', fill:  COLOR_GRAY, info: []},
 {id: 'PN', name: 'Питкерн', fill:  COLOR_GRAY, info: []},
-{id: 'PT', name: 'Португалия', fill:  COLOR_GRAY, info: []},
+{id: 'PT', name: 'Португалия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'PR', name: 'Пуэрто-Рико', fill:  COLOR_GRAY, info: []},
 {id: 'MK', name: 'Республика Македония', fill:  COLOR_GRAY, info: []},
 {id: 'RE', name: 'Реюньон', fill:  COLOR_GRAY, info: []},
@@ -737,7 +783,7 @@ let covid19Data = [
 {id: 'FO', name: 'Фарерские острова', fill:  COLOR_GRAY, info: []},
 {id: 'FJ', name: 'Фиджи', fill:  COLOR_GRAY, info: []},
 {id: 'PH', name: 'Филиппины', fill:  COLOR_GRAY, info: []},
-{id: 'FI', name: 'Финляндия', fill:  COLOR_GRAY, info: []},
+{id: 'FI', name: 'Финляндия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'FK', name: 'Фолклендские (Мальвинские) острова', fill:  COLOR_GRAY, info: []},
 {id: 'GF', name: 'Французская Гвиана', fill:  COLOR_GRAY, info: []},
 {id: 'PF', name: 'Французская Полинезия', fill:  COLOR_GRAY, info: []},
