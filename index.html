@@ -96,6 +96,7 @@
                 <div class="list media-list">
                     <ul></ul>
                 </div>
+                <div class="vk-comments"></div>
             </div>
         </div>
     </div>
@@ -178,7 +179,7 @@
             "name": "Нет ограничений",
             "fill": COLOR_BLUE
         }, {
-            "name": "Недостаточно данных",
+            "name": "Нет данных",
             "fill": COLOR_GRAY
         }];
 
@@ -187,6 +188,7 @@
 
         polygonTemplate.events.on("hit", function (ev) {
             $$('#leftPanelContent ul').empty();
+            $$('#leftPanelContent .vk-comments').empty();
 
             let itemInfo = ev.target.dataItem.dataContext.info;
             if (itemInfo && itemInfo.length) {
@@ -239,7 +241,7 @@
             // add comments
             let itemID = ev.target.dataItem.dataContext.id;
             let vkCommentsID = 'vk_comments_' + itemID;
-            $$('#leftPanelContent').append('<div id="{vkCommentsID}"></div>'.replace('{vkCommentsID}', vkCommentsID));
+            $$('#leftPanelContent .vk-comments').append('<div id="{vkCommentsID}"></div>'.replace('{vkCommentsID}', vkCommentsID));
             VK.Widgets.Comments(vkCommentsID, {limit: 5, attach: "*"}, itemID);
 
             app.panel.open('#countryInfoPanel', true);
