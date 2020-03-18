@@ -171,7 +171,7 @@
         polygonTemplate.fill = chart.colors.getIndex(0);
         polygonTemplate.nonScalingStroke = true;
 
-        worldSeries.data = covid19Data;
+        worldSeries.data = prepareData(covid19Data);
 
         var legend = new am4charts.Legend();
         legend.parent = chart.chartContainer;
@@ -201,7 +201,8 @@
             $$('#leftPanelContent ul').empty();
             $$('#leftPanelContent .vk-comments').empty();
 
-            let itemInfo = ev.target.dataItem.dataContext.info;
+            let itemData = ev.target.dataItem.dataContext;
+            let itemInfo = itemData.info;
             if (itemInfo && itemInfo.length) {
                 let currentEl = null;
 
@@ -258,6 +259,24 @@
             app.panel.open('#countryInfoPanel', true);
         });
     });
+
+    function prepareData(data) {
+        data.forEach(function (countryData) {
+            if (countryData.eu) {
+                countryData.info.push({
+                    title: "Внешние границы Евросоюза закрыты на 30 дней с 17 марта",
+                    datetime: "2020-03-17",
+                    site: "https://www.unian.net/world/10919960-lidery-stran-es-reshili-zakryt-vneshnie-granicy-iz-za-koronavirusa.html"
+                });
+
+                if(countryData.fill === COLOR_GRAY) {
+                    countryData.fill = COLOR_YELLOW;
+                }
+            }
+        });
+        return data;
+    }
+
 </script>
 
 <script type="text/javascript">
