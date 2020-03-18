@@ -230,8 +230,12 @@ let covid19Data = [
     {
         id: "TR",
         name: "Турция",
-        fill: COLOR_BLUE,
+        fill: COLOR_YELLOW,
         info: [
+            {
+                title: "Необходимо соблюдать режима самоизоляции в течение 14 дней после посещения следующих стран – Китайская Республика, Иран, Ирак, Италия, Южная Корея, Германия, Франция, Испания, Норвегия, Дания, Бельгия, Австрия, Швеция и Нидерланды",
+                datetime: "2020-14-03"
+            },
             {
                 title: "Перенос туристического сезон с марта, на конце апреля"
             }
@@ -266,7 +270,7 @@ let covid19Data = [
     {
         id: "KZ",
         name: "Казахстан",
-        fill: COLOR_BLUE,
+        fill: COLOR_RED,
         info: [
             {
                 title: "Запрещены все массовые мероприятия",
@@ -476,7 +480,7 @@ let covid19Data = [
     {
         id: "CH",
         name: "Швейцария",
-        fill: COLOR_YELLOW,
+        fill: COLOR_RED,
         schengen: true,
         info: [
             {
@@ -590,7 +594,7 @@ let covid19Data = [
         ]
     },
 {id: 'AU', name: 'Австралия', fill:  COLOR_GRAY, info: []},
-{id: 'AZ', name: 'Азербайджан', fill:  COLOR_GRAY, info: []},
+{id: 'AZ', name: 'Азербайджан', fill:  COLOR_RED, info: []},
 {id: 'AL', name: 'Албания', fill:  COLOR_GRAY, info: []},
 {id: 'DZ', name: 'Алжир', fill:  COLOR_GRAY, info: []},
 {id: 'AS', name: 'Американское Самоа', fill:  COLOR_GRAY, info: []},
@@ -599,7 +603,13 @@ let covid19Data = [
 {id: 'AD', name: 'Андорра', fill:  COLOR_GRAY, info: []},
 {id: 'AQ', name: 'Антарктида', fill:  COLOR_GRAY, info: []},
 {id: 'AG', name: 'Антигуа и Барбуда', fill:  COLOR_GRAY, info: []},
-{id: 'AR', name: 'Аргентина', fill:  COLOR_GRAY, info: []},
+{id: 'AR', name: 'Аргентина', fill:  COLOR_RED, info: [
+        {
+            title: "Правительство Аргентины приняло решение на 15 дней закрыты границы из-за угрозы коронавируса",
+            description: "Запрет на въезд в страну вводится для всех иностранцев, кроме тех, кто имеет вид на жительство",
+            datetime: "2020-03-16"
+        }
+    ]},
 {id: 'AW', name: 'Аруба', fill:  COLOR_GRAY, info: []},
 {id: 'AF', name: 'Афганистан', fill:  COLOR_GRAY, info: []},
 {id: 'BS', name: 'Багамы', fill:  COLOR_GRAY, info: []},
@@ -607,11 +617,23 @@ let covid19Data = [
 {id: 'BB', name: 'Барбадос', fill:  COLOR_GRAY, info: []},
 {id: 'BH', name: 'Бахрейн', fill:  COLOR_GRAY, info: []},
 {id: 'BZ', name: 'Белиз', fill:  COLOR_GRAY, info: []},
-{id: 'BE', name: 'Бельгия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
+{id: 'BE', name: 'Бельгия', fill:  COLOR_RED, schengen: true, eu: true, info: [
+        {
+            title: "Бельгия вводит режим карантина по всей стране",
+            datetime: "2020-03-17",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'BJ', name: 'Бенин', fill:  COLOR_GRAY, info: []},
 {id: 'BM', name: 'Бермудские острова', fill:  COLOR_GRAY, info: []},
-{id: 'BG', name: 'Болгария', fill:  COLOR_GRAY, eu: true, info: []},
-{id: 'BO', name: 'Боливия', fill:  COLOR_GRAY, info: []},
+{id: 'BG', name: 'Болгария', fill:  COLOR_RED, eu: true, info: []},
+{id: 'BO', name: 'Боливия', fill:  COLOR_YELLOW, info: [
+        {
+            title: "Город Санта-Крус в Боливии для защиты населения от коронавируса с 18 марта 2020 года закрывается на пятидневный карантин",
+            datetime: "2020-03-17",
+            site: " http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'BA', name: 'Босния и Герцеговина', fill:  COLOR_GRAY, info: []},
 {id: 'BW', name: 'Ботсвана', fill:  COLOR_GRAY, info: []},
 {id: 'BR', name: 'Бразилия', fill:  COLOR_GRAY, info: []},
@@ -624,7 +646,11 @@ let covid19Data = [
 {id: 'VU', name: 'Вануату', fill:  COLOR_GRAY, info: []},
 {id: 'VA', name: 'Ватикан', fill:  COLOR_GRAY, info: []},
 {id: 'GB', name: 'Великобритания', fill:  COLOR_GRAY, info: []},
-{id: 'VE', name: 'Венесуэла', fill:  COLOR_GRAY, info: []},
+{id: 'VE', name: 'Венесуэла', fill:  COLOR_RED, info: [{
+        title: "ввели общенациональный карантин из-за коронавируса",
+        datetime: "2020-03-17",
+        site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+    }]},
 {id: 'VI', name: 'Виргинские острова США', fill:  COLOR_GRAY, info: []},
 {id: 'VN', name: 'Вьетнам', fill:  COLOR_GRAY, info: []},
 {id: 'GA', name: 'Габон', fill:  COLOR_GRAY, info: []},
@@ -655,10 +681,16 @@ let covid19Data = [
 {id: 'EH', name: 'Западная Сахара', fill:  COLOR_GRAY, info: []},
 {id: 'ZW', name: 'Зимбабве', fill:  COLOR_GRAY, info: []},
 {id: 'IN', name: 'Индия', fill:  COLOR_GRAY, info: []},
-{id: 'ID', name: 'Индонезия', fill:  COLOR_GRAY, info: []},
+{id: 'ID', name: 'Индонезия', fill:  COLOR_YELLOW, info: [
+        {
+            title: "С 20 марта 2020 года Индонезия приостановит безвизовый режим для краткосрочных поездок, а также выдачу виз по прибытию",
+            description: "В страну можно будет въехать только по предварительно полученной визе",
+            datetime: "2020-03-17"
+        }
+    ]},
 {id: 'JO', name: 'Иордания', fill:  COLOR_GRAY, schengen: true, info: []},
 {id: 'IQ', name: 'Ирак', fill:  COLOR_GRAY, info: []},
-{id: 'IR', name: 'Иран', fill:  COLOR_GRAY, info: []},
+{id: 'IR', name: 'Иран', fill:  COLOR_RED, info: []},
 {id: 'IE', name: 'Ирландия', fill:  COLOR_GRAY, eu: true, info: []},
 {id: 'IS', name: 'Исландия', fill:  COLOR_GRAY, schengen: true, info: []},
 {id: 'YE', name: 'Йемен', fill:  COLOR_GRAY, info: []},
@@ -666,13 +698,23 @@ let covid19Data = [
 {id: 'KY', name: 'Каймановы острова', fill:  COLOR_GRAY, info: []},
 {id: 'KH', name: 'Камбоджа', fill:  COLOR_GRAY, info: []},
 {id: 'CM', name: 'Камерун', fill:  COLOR_GRAY, info: []},
-{id: 'CA', name: 'Канада', fill:  COLOR_GRAY, info: []},
+{id: 'CA', name: 'Канада', fill:  COLOR_RED, info: [
+        {
+            title: "Канада в связи с угрозой коронавируса запретит въезд в страну всем иностранным гражданам",
+            datetime: "2020-03-16",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'QA', name: 'Катар', fill:  COLOR_GRAY, info: []},
 {id: 'KE', name: 'Кения', fill:  COLOR_GRAY, info: []},
 {id: 'KI', name: 'Кирибати', fill:  COLOR_GRAY, info: []},
 {id: 'CN', name: 'Китай', fill:  COLOR_GRAY, info: []},
 {id: 'CC', name: 'Кокосовые (Килинг) острова', fill:  COLOR_GRAY, info: []},
-{id: 'CO', name: 'Колумбия', fill:  COLOR_GRAY, info: []},
+{id: 'CO', name: 'Колумбия', fill:  COLOR_RED, info: [{
+        title: "олумбия закрыла границы для иностранцев до 30 мая",
+        datetime: "2020-03-17",
+        site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+    }]},
 {id: 'KM', name: 'Коморы', fill:  COLOR_GRAY, info: []},
 {id: 'CG', name: 'Конго', fill:  COLOR_GRAY, info: []},
 {id: 'XK', name: 'Косово', fill:  COLOR_GRAY, info: []},
@@ -680,7 +722,7 @@ let covid19Data = [
 {id: 'CI', name: 'Кот д’Ивуар', fill:  COLOR_GRAY, info: []},
 {id: 'CU', name: 'Куба', fill:  COLOR_GRAY, info: []},
 {id: 'KW', name: 'Кувейт', fill:  COLOR_GRAY, info: []},
-{id: 'KG', name: 'Киргизия', fill:  COLOR_GRAY, info: []},
+{id: 'KG', name: 'Киргизия', fill:  COLOR_RED, info: []},
 {id: 'LA', name: 'Лаос', fill:  COLOR_GRAY, info: []},
 {id: 'LS', name: 'Лесото', fill:  COLOR_GRAY, info: []},
 {id: 'LR', name: 'Либерия', fill:  COLOR_GRAY, info: []},
@@ -694,7 +736,7 @@ let covid19Data = [
 {id: 'YT', name: 'Майотта', fill:  COLOR_GRAY, info: []},
 {id: 'MO', name: 'Макао', fill:  COLOR_GRAY, info: []},
 {id: 'MW', name: 'Малави', fill:  COLOR_GRAY, info: []},
-{id: 'MY', name: 'Малайзия', fill:  COLOR_GRAY, info: []},
+{id: 'MY', name: 'Малайзия', fill:  COLOR_RED, info: []},
 {id: 'ML', name: 'Мали', fill:  COLOR_GRAY, info: []},
 {id: 'UM', name: 'Малые Тихоокеанские отдаленные острова США', fill:  COLOR_GRAY, info: []},
 {id: 'MV', name: 'Мальдивы', fill:  COLOR_GRAY, info: []},
@@ -718,8 +760,8 @@ let covid19Data = [
 {id: 'NU', name: 'Ниуэ', fill:  COLOR_GRAY, info: []},
 {id: 'NZ', name: 'Новая Зеландия', fill:  COLOR_GRAY, info: []},
 {id: 'NC', name: 'Новая Каледония', fill:  COLOR_GRAY, info: []},
-{id: 'AE', name: 'Объединенные Арабские Эмираты', fill:  COLOR_GRAY, info: []},
-{id: 'OM', name: 'Оман', fill:  COLOR_GRAY, info: []},
+{id: 'AE', name: 'ОАЭ', fill:  COLOR_RED, info: []},
+{id: 'OM', name: 'Оман', fill:  COLOR_RED, info: []},
 {id: 'CK', name: 'Острова Кука', fill:  COLOR_GRAY, info: []},
 {id: 'TC', name: 'Острова Тёркс и Кайкос', fill:  COLOR_GRAY, info: []},
 {id: 'BV', name: 'Остров Буве', fill:  COLOR_GRAY, info: []},
@@ -729,7 +771,7 @@ let covid19Data = [
 {id: 'CX', name: 'Остров Рождества', fill:  COLOR_GRAY, info: []},
 {id: 'MF', name: 'Остров Святого Мартина', fill:  COLOR_GRAY, info: []},
 {id: 'HM', name: 'Остров Херд и острова Макдональд', fill:  COLOR_GRAY, info: []},
-{id: 'PK', name: 'Пакистан', fill:  COLOR_GRAY, info: []},
+{id: 'PK', name: 'Пакистан', fill:  COLOR_RED, info: []},
 {id: 'PW', name: 'Палау', fill:  COLOR_GRAY, info: []},
 {id: 'PS', name: 'Оккупированная палестинская территория', fill:  COLOR_GRAY, info: []},
 {id: 'PA', name: 'Панама', fill:  COLOR_GRAY, info: []},
@@ -761,7 +803,7 @@ let covid19Data = [
 {id: 'SY', name: 'Сирия', fill:  COLOR_GRAY, info: []},
 {id: 'SB', name: 'Соломоновы острова', fill:  COLOR_GRAY, info: []},
 {id: 'SO', name: 'Сомали', fill:  COLOR_GRAY, info: []},
-{id: 'SD', name: 'Судан', fill:  COLOR_GRAY, info: []},
+{id: 'SD', name: 'Судан', fill:  COLOR_RED, info: []},
 {id: 'SR', name: 'Суринам', fill:  COLOR_GRAY, info: []},
 {id: 'SL', name: 'Сьерра-Леоне', fill:  COLOR_GRAY, info: []},
 {id: 'TJ', name: 'Таджикистан', fill:  COLOR_GRAY, info: []},
@@ -774,16 +816,24 @@ let covid19Data = [
 {id: 'TO', name: 'Тонга', fill:  COLOR_GRAY, info: []},
 {id: 'TT', name: 'Тринидад и Тобаго', fill:  COLOR_GRAY, info: []},
 {id: 'TV', name: 'Тувалу', fill:  COLOR_GRAY, info: []},
-{id: 'TN', name: 'Тунис', fill:  COLOR_GRAY, info: []},
-{id: 'TM', name: 'Туркмения', fill:  COLOR_GRAY, info: []},
+{id: 'TN', name: 'Тунис', fill:  COLOR_RED, info: [{
+        title: "Закрыты воздушные и сухопутные границы для всех коммерческих рейсов",
+        datetime: "2020-03-17",
+        site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+    }]},
+{id: 'TM', name: 'Туркмения', fill:  COLOR_RED, info: []},
 {id: 'UG', name: 'Уганда', fill:  COLOR_GRAY, info: []},
-{id: 'UZ', name: 'Узбекистан', fill:  COLOR_GRAY, info: []},
+{id: 'UZ', name: 'Узбекистан', fill:  COLOR_RED, info: []},
 {id: 'WF', name: 'Уоллис и Футуна', fill:  COLOR_GRAY, info: []},
-{id: 'UY', name: 'Уругвай', fill:  COLOR_GRAY, info: []},
+{id: 'UY', name: 'Уругвай', fill:  COLOR_YELLOW, info: [{
+        title: "Уругвай закрыл наземную границу с Аргентиной",
+        datetime: "2020-03-17",
+        site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/",
+    }]},
 {id: 'FO', name: 'Фарерские острова', fill:  COLOR_GRAY, info: []},
 {id: 'FJ', name: 'Фиджи', fill:  COLOR_GRAY, info: []},
 {id: 'PH', name: 'Филиппины', fill:  COLOR_GRAY, info: []},
-{id: 'FI', name: 'Финляндия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
+{id: 'FI', name: 'Финляндия', fill:  COLOR_RED, schengen: true, eu: true, info: []},
 {id: 'FK', name: 'Фолклендские (Мальвинские) острова', fill:  COLOR_GRAY, info: []},
 {id: 'GF', name: 'Французская Гвиана', fill:  COLOR_GRAY, info: []},
 {id: 'PF', name: 'Французская Полинезия', fill:  COLOR_GRAY, info: []},
@@ -793,11 +843,20 @@ let covid19Data = [
 {id: 'ME', name: 'Черногория', fill:  COLOR_GRAY, info: []},
 {id: 'CL', name: 'Чили', fill:  COLOR_GRAY, info: []},
 {id: 'SJ', name: 'Шпицберген и Ян Майен', fill:  COLOR_GRAY, info: []},
-{id: 'LK', name: 'Шри-Ланка', fill:  COLOR_GRAY, info: []},
-{id: 'EC', name: 'Эквадор', fill:  COLOR_GRAY, info: []},
+{id: 'LK', name: 'Шри-Ланка', fill:  COLOR_RED, info: [
+        {
+            title: "С 18 марта Шри ланка на 2 недели приостанавливает международное сообщение на въезд в стран",
+            description: "Вылет возможен",
+            datetime: "2020-03-17",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
+{id: 'EC', name: 'Эквадор', fill:  COLOR_RED, info: []},
 {id: 'GQ', name: 'Экваториальная Гвинея', fill:  COLOR_GRAY, info: []},
 {id: 'AX', name: 'Эландские острова', fill:  COLOR_GRAY, info: []},
-{id: 'SV', name: 'Эль-Сальвадор', fill:  COLOR_GRAY, info: []},
+{id: 'SV', name: 'Эль-Сальвадор', fill:  COLOR_YELLOW, info: [{
+        title: "Временно запрещена посадка иностранных самолетов из-за коронавируса"
+    }]},
 {id: 'ER', name: 'Эритрея', fill:  COLOR_GRAY, info: []},
 {id: 'ET', name: 'Эфиопия', fill:  COLOR_GRAY, info: []},
 {id: 'ZA', name: 'Южная Африка', fill:  COLOR_GRAY, info: []},
