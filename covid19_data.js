@@ -585,7 +585,16 @@ let covid19Data = [
             }
         ]
     },
-{id: 'AU', name: 'Австралия', fill:  COLOR_GRAY, info: []},
+{id: 'AU', name: 'Австралия', fill:  COLOR_YELLOW, info: [
+        {
+            title: "С 15 марта введен 14-дневный карантин для всех приезжающих",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        },
+        {
+            title: "Люди, побывавшие в Китае, Иране, Южной Корее, Италии в течение последних 14 дней, не могут посещать Австралию даже транзитом",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'AZ', name: 'Азербайджан', fill:  COLOR_RED, info: []},
 {id: 'AL', name: 'Албания', fill:  COLOR_GRAY, info: []},
 {id: 'DZ', name: 'Алжир', fill:  COLOR_GRAY, info: []},
@@ -721,7 +730,7 @@ let covid19Data = [
 {id: 'DJ', name: 'Джибути', fill:  COLOR_GRAY, info: []},
 {id: 'DO', name: 'Доминиканская Республика', fill:  COLOR_GRAY, info: []},
 {id: 'DM', name: 'Доминика', fill:  COLOR_GRAY, info: []},
-{id: 'EG', name: 'Египет', fill:  COLOR_GRAY, info: []},
+{id: 'EG', name: 'Египет', fill:  COLOR_BLUE, info: []},
 {id: 'ZM', name: 'Замбия', fill:  COLOR_GRAY, info: []},
 {id: 'EH', name: 'Западная Сахара', fill:  COLOR_GRAY, info: []},
 {id: 'ZW', name: 'Зимбабве', fill:  COLOR_GRAY, info: []},
@@ -791,7 +800,7 @@ let covid19Data = [
         }
     ]},
 {id: 'KI', name: 'Кирибати', fill:  COLOR_GRAY, info: []},
-{id: 'CN', name: 'Китай', fill:  COLOR_GRAY, info: []},
+{id: 'CN', name: 'Китай', fill:  COLOR_BLUE, info: []},
 {id: 'CC', name: 'Кокосовые (Килинг) острова', fill:  COLOR_GRAY, info: []},
 {id: 'CO', name: 'Колумбия', fill:  COLOR_RED, info: [{
         title: "Колумбия закрыла границы для иностранцев до 30 мая",
@@ -830,7 +839,18 @@ let covid19Data = [
 {id: 'FM', name: 'Микронезия', fill:  COLOR_GRAY, info: []},
 {id: 'MZ', name: 'Мозамбик', fill:  COLOR_GRAY, info: []},
 {id: 'MC', name: 'Монако', fill:  COLOR_GRAY, info: []},
-{id: 'MN', name: 'Монголия', fill:  COLOR_GRAY, info: []},
+{id: 'MN', name: 'Монголия', fill:  COLOR_RED, info: [
+        {
+            title: "До 28 марта 2020 года отменены все регулярные авиарейсы, прекращено движение поездов",
+            datetime: "2020-03-10",
+            site: "https://vz.ru/news/2020/3/10/1028070.html"
+        },
+        {
+            title: "Запрет въезда на территорию страны на автомобилях для иностранных граждан",
+            datetime: "2020-03-10",
+            site: "https://vz.ru/news/2020/3/10/1028070.html"
+        }
+    ]},
 {id: 'MS', name: 'Монтсеррат', fill:  COLOR_GRAY, info: []},
 {id: 'MM', name: 'Мьянма', fill:  COLOR_GRAY, info: []},
 {id: 'NA', name: 'Намибия', fill:  COLOR_GRAY, info: []},
