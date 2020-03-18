@@ -623,7 +623,7 @@ let covid19Data = [
         {
             title: "Город Санта-Крус в Боливии для защиты населения от коронавируса с 18 марта 2020 года закрывается на пятидневный карантин",
             datetime: "2020-03-17",
-            site: " http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
         }
     ]},
 {id: 'BA', name: 'Босния и Герцеговина', fill:  COLOR_GRAY, info: []},
@@ -651,7 +651,14 @@ let covid19Data = [
 {id: 'GM', name: 'Гамбия', fill:  COLOR_GRAY, info: []},
 {id: 'GH', name: 'Гана', fill:  COLOR_GRAY, info: []},
 {id: 'GP', name: 'Гваделупа', fill:  COLOR_GRAY, info: []},
-{id: 'GT', name: 'Гватемала', fill:  COLOR_GRAY, info: []},
+{id: 'GT', name: 'Гватемала', fill:  COLOR_RED, info: [
+        {
+            title: "Гватемала с 17 марта прекращает авиасообщение по всем направлениям",
+            description: "Наземным путем в ходе карантина въехать смогут граждане страны, резиденты и дипломатический корпус",
+            datetime: "2020-03-16",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'GW', name: 'Гвинея-Бисау', fill:  COLOR_GRAY, info: []},
 {id: 'GN', name: 'Гвинея', fill:  COLOR_GRAY, info: []},
 {id: 'GG', name: 'Гернси', fill:  COLOR_GRAY, info: []},
@@ -774,10 +781,22 @@ let covid19Data = [
 {id: 'PS', name: 'Оккупированная палестинская территория', fill:  COLOR_GRAY, info: []},
 {id: 'PA', name: 'Панама', fill:  COLOR_GRAY, info: []},
 {id: 'PG', name: 'Папуа-Новая Гвинея', fill:  COLOR_GRAY, info: []},
-{id: 'PY', name: 'Парагвай', fill:  COLOR_GRAY, info: []},
+{id: 'PY', name: 'Парагвай', fill:  COLOR_BLUE, info: [
+        {
+            title: "6 марта Парагвай ввел комендантский час по всей стране из-за коронавируса с 20.00 до 04.00 на территории всей страны.",
+            datetime: "2020-03-16",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'PE', name: 'Перу', fill:  COLOR_GRAY, info: []},
 {id: 'PN', name: 'Питкерн', fill:  COLOR_GRAY, info: []},
-{id: 'PT', name: 'Португалия', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
+{id: 'PT', name: 'Португалия', fill:  COLOR_YELLOW, schengen: true, eu: true, info: [
+        {
+            title: "С 16 марта Португалия перекрывает авиационное, железнодорожное, морское и речное сообщение с Испанией",
+            datetime: "2020-03-16",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'PR', name: 'Пуэрто-Рико', fill:  COLOR_GRAY, info: []},
 {id: 'MK', name: 'Республика Македония', fill:  COLOR_GRAY, info: []},
 {id: 'RE', name: 'Реюньон', fill:  COLOR_GRAY, info: []},
@@ -839,7 +858,13 @@ let covid19Data = [
 {id: 'CF', name: 'Центральноафриканская Республика', fill:  COLOR_GRAY, info: []},
 {id: 'TD', name: 'Чад', fill:  COLOR_GRAY, info: []},
 {id: 'ME', name: 'Черногория', fill:  COLOR_GRAY, info: []},
-{id: 'CL', name: 'Чили', fill:  COLOR_GRAY, info: []},
+{id: 'CL', name: 'Чили', fill:  COLOR_RED, info: [
+        {
+            title: "Чили закрывает границы для иностранцев из-за риска коронавируса",
+            datetime: "2020-03-16",
+            site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
+        }
+    ]},
 {id: 'SJ', name: 'Шпицберген и Ян Майен', fill:  COLOR_GRAY, info: []},
 {id: 'LK', name: 'Шри-Ланка', fill:  COLOR_RED, info: [
         {
