@@ -660,7 +660,13 @@ let covid19Data = [
 {id: 'HN', name: 'Гондурас', fill:  COLOR_GRAY, info: []},
 {id: 'HK', name: 'Гонконг', fill:  COLOR_GRAY, info: []},
 {id: 'GD', name: 'Гренада', fill:  COLOR_GRAY, info: []},
-{id: 'GL', name: 'Гренландия', fill:  COLOR_GRAY, info: []},
+{id: 'GL', name: 'Гренландия', fill:  COLOR_RED, info: [
+        {
+            title: "Был зафиксирован первый случай заражения SARS-CoV-2, несмотря на закрытые границы",
+            datetime: "2020-03-16",
+            site: "https://lenta.ru/news/2020/03/16/greeen/",
+        }
+    ]},
 {id: 'GR', name: 'Греция', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
 {id: 'GU', name: 'Гуам', fill:  COLOR_GRAY, info: []},
 {id: 'CD', name: 'Демократическая Республика Конго', fill:  COLOR_GRAY, info: []},
