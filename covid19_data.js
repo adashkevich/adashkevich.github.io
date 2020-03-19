@@ -305,6 +305,14 @@ let covid19Data = [
         fill: COLOR_BLUE,
         info: [
             {
+                title: "Граждане Китая (Народная Республика) с обычным паспортом больше не освобождаются от получения визы",
+                site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+            },
+            {
+                title: "Граждане Ирана больше не могут получить визу по прибытии",
+                site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+            },
+            {
                 title: "С 13 марта закрывает на карантин все образовательные учреждения"
             }
         ] //https://news.tut.by/world/676373.html
@@ -595,7 +603,20 @@ let covid19Data = [
             site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
         }
     ]},
-{id: 'AZ', name: 'Азербайджан', fill:  COLOR_RED, info: []},
+{id: 'AZ', name: 'Азербайджан', fill:  COLOR_YELLOW, info: [
+        {
+            title: "Гражданам Китая не разрешается въезжать в Азербайджан, если у них нет визы, полученной до отъезда",
+            site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+        },
+        {
+            title: "Гражданам Бахрейна, Индонезии, Ирана, Израиля, Японии, Кореи (Республика), Кувейта, Малайзии, Омана, Катара Саудовская Аравия, Сингапур, ОАЭ и США не допускаются в Азербайджан, если у них нет визы, полученной до отъезда",
+            site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+        },
+        {
+            title: "Выдача электронных виз и виз по прибытии была приостановлена",
+            site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+        },
+    ]},
 {id: 'AL', name: 'Албания', fill:  COLOR_GRAY, info: []},
 {id: 'DZ', name: 'Алжир', fill:  COLOR_GRAY, info: []},
 {id: 'AS', name: 'Американское Самоа', fill:  COLOR_GRAY, info: []},
@@ -823,7 +844,16 @@ let covid19Data = [
 {id: 'LA', name: 'Лаос', fill:  COLOR_GRAY, info: []},
 {id: 'LS', name: 'Лесото', fill:  COLOR_GRAY, info: []},
 {id: 'LR', name: 'Либерия', fill:  COLOR_GRAY, info: []},
-{id: 'LB', name: 'Ливан', fill:  COLOR_GRAY, info: []},
+{id: 'LB', name: 'Ливан', fill:  COLOR_YELLOW, info: [
+        {
+            title: "Пассажиры, которые проезжали или находились в Китае, Тайбэе, Египте, Франции, Германии, Гонконге, Иране, Ираке, Италии, Японии, Корее, Макао, Испании, Сирии или Соединенному Королевству за последние 14 дней запрещен въезд и транзит через Ливан",
+            site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+        },
+        {
+            title: "раждане Ливана и жители Ливана, которые находились в Китае, Тайбэе, Египте, Франции, Германии, Гонконге, Иране, Ираке, Италии, Японии, Корее, Макао, Испания, Сирия или Соединенное Королевство должны заполнить новую информационную форму Министерства здравоохранения до прибытия",
+            site: "https://belavia.by/covid_informatsiya_po_ogranicheniyu/"
+        }
+    ]},
 {id: 'LY', name: 'Ливия', fill:  COLOR_GRAY, info: []},
 {id: 'LI', name: 'Лихтенштейн', fill:  COLOR_GRAY, schengen: true, info: []},
 {id: 'LU', name: 'Люксембург', fill:  COLOR_GRAY, schengen: true, eu: true, info: []},
