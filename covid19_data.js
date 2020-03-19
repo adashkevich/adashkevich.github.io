@@ -230,7 +230,7 @@ let covid19Data = [
     {
         id: "TR",
         name: "Турция",
-        fill: COLOR_YELLOW,
+        fill: COLOR_RED,
         info: [
             {
                 title: "Необходимо соблюдать режима самоизоляции в течение 14 дней после посещения следующих стран – Китайская Республика, Иран, Ирак, Италия, Южная Корея, Германия, Франция, Испания, Норвегия, Дания, Бельгия, Австрия, Швеция и Нидерланды",
@@ -663,16 +663,21 @@ let covid19Data = [
 {id: 'BT', name: 'Бутан', fill:  COLOR_GRAY, info: []},
 {id: 'VU', name: 'Вануату', fill:  COLOR_GRAY, info: []},
 {id: 'VA', name: 'Ватикан', fill:  COLOR_GRAY, info: []},
-{id: 'GB', name: 'Великобритания', fill:  COLOR_GRAY, info: []},
+{id: 'GB', name: 'Великобритания', fill:  COLOR_BLUE, info: []},
 {id: 'VE', name: 'Венесуэла', fill:  COLOR_RED, info: [{
         title: "ввели общенациональный карантин из-за коронавируса",
         datetime: "2020-03-17",
         site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
     }]},
 {id: 'VI', name: 'Виргинские острова США', fill:  COLOR_GRAY, info: []},
-{id: 'VN', name: 'Вьетнам', fill:  COLOR_BLUE, info: [
+{id: 'VN', name: 'Вьетнам', fill:  COLOR_YELLOW, info: [
         {
-            title: "Отменена выдача виза по прилёту",
+            title: "Все пассажиры прибывшие из США, стран Европы, включая Россию, Юго-восточной Азии будут направлены на 14 дневный карантин",
+            datetime: "2020-03-18",
+            site: "https://vk.com/bookmarks?from_menu=1&w=wall-63731512_1472707%2Fb68354f6647b3e1929&z=photo-63731512_457332910%2Fwall-63731512_1472854"
+        },
+        {
+            title: "Отменена выдача всех видов въездных виза с 18 марта на 30 суток",
             datetime: "2020-03-14",
             site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
         }
@@ -730,7 +735,7 @@ let covid19Data = [
 {id: 'DJ', name: 'Джибути', fill:  COLOR_GRAY, info: []},
 {id: 'DO', name: 'Доминиканская Республика', fill:  COLOR_GRAY, info: []},
 {id: 'DM', name: 'Доминика', fill:  COLOR_GRAY, info: []},
-{id: 'EG', name: 'Египет', fill:  COLOR_BLUE, info: []},
+{id: 'EG', name: 'Египет', fill:  COLOR_RED, info: []},
 {id: 'ZM', name: 'Замбия', fill:  COLOR_GRAY, info: []},
 {id: 'EH', name: 'Западная Сахара', fill:  COLOR_GRAY, info: []},
 {id: 'ZW', name: 'Зимбабве', fill:  COLOR_GRAY, info: []},
@@ -763,7 +768,7 @@ let covid19Data = [
 {id: 'IQ', name: 'Ирак', fill:  COLOR_GRAY, info: []},
 {id: 'IR', name: 'Иран', fill:  COLOR_RED, info: []},
 {id: 'IE', name: 'Ирландия', fill:  COLOR_GRAY, eu: true, info: []},
-{id: 'IS', name: 'Исландия', fill:  COLOR_GRAY, schengen: true, info: []},
+{id: 'IS', name: 'Исландия', fill:  COLOR_BLUE, schengen: true, info: []},
 {id: 'YE', name: 'Йемен', fill:  COLOR_YELLOW, info: [
         {
             title: "Закрыто авиасообщение",
@@ -771,7 +776,7 @@ let covid19Data = [
             site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
         }
     ]},
-{id: 'CV', name: 'Кабо-Верде', fill:  COLOR_GRAY, info: []},
+{id: 'CV', name: 'Кабо-Верде', fill:  COLOR_RED, info: []},
 {id: 'KY', name: 'Каймановы острова', fill:  COLOR_GRAY, info: []},
 {id: 'KH', name: 'Камбоджа', fill:  COLOR_GRAY, info: []},
 {id: 'CM', name: 'Камерун', fill:  COLOR_GRAY, info: []},
