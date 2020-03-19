@@ -150,10 +150,10 @@
 
     am4core.ready(async function () {
 
-    let country = await fetch('http://ip-api.com/json')
+    let country = await fetch('https://json.geoiplookup.io/')
         .then(response => response.json())
-        .then(data => data.country)
-        .catch((data, status) => "None")
+        .then(data => data.country_name)
+        .catch((data, status) => "None");
 
         am4core.useTheme(am4themes_animated);
 
