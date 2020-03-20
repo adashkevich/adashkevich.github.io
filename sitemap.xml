@@ -1,0 +1,17 @@
+<urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://adashkevich.github.io/</loc>
+    <lastmod>2020-03-19T08:03:59+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://adashkevich.github.io/feedback.html</loc>
+    <lastmod>2020-03-19T08:03:59+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://adashkevich.github.io/index.html</loc>
+    <lastmod>2020-03-19T08:03:59+00:00</lastmod>
+    <priority>0.64</priority>
+  </url>
+</urlset>
