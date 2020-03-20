@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: adashkevich.github.io/sitemap.xml
+Sitemap: https://adashkevich.github.io/sitemap.xml
