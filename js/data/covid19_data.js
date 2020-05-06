@@ -667,7 +667,13 @@ let covid19Data = [
             site: "http://turvopros.com/strany-zakrytye-iz-za-koronavirusa/"
         }
     ]},
-{id: 'BA', name: 'Босния и Герцеговина', fill:  COLOR_GRAY, info: []},
+{id: 'BA', name: 'Босния и Герцеговина', fill:  COLOR_BLUE, info: [
+    {
+        title: "89 случаев заражения. Сербия и Черногория закрыли свои границы. Рекомендуется самоизоляция",
+        datetime: "2020-03-20",
+        site: "http://ba.n1info.com/Vijesti/a417833/Korona-virus-u-BiH.html",
+    }
+]},
 {id: 'BW', name: 'Ботсвана', fill:  COLOR_GRAY, info: []},
 {id: 'BR', name: 'Бразилия', fill:  COLOR_BLUE, info: [
         {
