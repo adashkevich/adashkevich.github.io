@@ -228,7 +228,7 @@
                 itemInfo = withDate.concat(withoutDate);
 
                 itemInfo.forEach((info, index) => {
-                    let id = `countryinfoitem_${covid}`;
+                    let id = `countryinfoitem_${index}`;
 
                     let infoHtml = infoItemTemplate
                         .replace('{title}', info.title)
