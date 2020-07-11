@@ -62,8 +62,8 @@
         <div class="form-group">
             <button type="button" class="add-house-numbers btn btn-outline-success btn-sm">Номера домов</button>
             <button type="button" class="add-house-range btn btn-outline-success btn-sm">Промежуток</button>
-            <button type="button" class="add-house-even btn btn-outline-success btn-sm">Чётные</button>
-            <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Нечётные</button>
+            <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Чётные</button>
+            <button type="button" class="add-house-even btn btn-outline-success btn-sm">Нечётные</button>
             <button type="button" class="address-delete btn btn-outline-danger btn-sm">Удалить</button>
         </div>
     </form>
@@ -72,8 +72,8 @@
 <!--<button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>-->
 
 <template id="houseNumbers">
-    <div class="house-numbers form-group input-group-sm col-4">
-        <label>Дома:</label>
+    <div class="house-form house-numbers form-group input-group-sm col-4">
+        <label>Дома: <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
             <div class="col-12">
                 <input name="houseNumbers" type="text" class="form-control" placeholder="1 2 3a">
@@ -82,8 +82,8 @@
     </div>
 </template>
 <template id="houseRange">
-    <div class="house-range form-group input-group-sm col-4">
-        <label>Дома в промежутке с ... по ...</label>
+    <div class="house-form house-range form-group input-group-sm col-4">
+        <label>Дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
             <div class="col-3">
                 <input type="text" class="form-control" placeholder="1">
@@ -95,8 +95,8 @@
     </div>
 </template>
 <template id="houseOdd">
-    <div class="house-odd form-group input-group-sm col-4">
-        <label>Чётные дома в промежутке с ... по ...</label>
+    <div class="house-form house-odd form-group input-group-sm col-4">
+        <label>Чётные дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="2">
@@ -108,8 +108,8 @@
     </div>
 </template>
 <template id="houseEven">
-    <div class="house-even form-group input-group-sm col-4">
-        <label>Нечётные дома в промежутке с ... по ...</label>
+    <div class="house-form house-even form-group input-group-sm col-4">
+        <label>Нечётные дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="7">
@@ -139,6 +139,11 @@
         let addressIndex = $(this).closest('form').attr('address');
         $(`form[address="${addressIndex}"]`).remove();
     });
+
+    $(document).on('click', '.house-delete', function () {
+        $(this).closest('.house-form').remove();
+    });
+
 
     $(document).on('click', '#addNewAddress', function () {
         let addressTemplate = $('template#newStreet').html().replace('${address_index}', lastAddressIndex++);
@@ -200,9 +205,9 @@
                 }
 
                 if(nAddress.length) {
-                    finalResults.push(street.trim() + ' ' + nAddress.join(', ') + ';')
+                    finalResults.push(street.trim() + ' ' + nAddress.join(', ') + ';');
                 } else {
-                    finalResults.push(street.trim() + ';')
+                    finalResults.push(street.trim() + ';');
                 }
             }
         });
