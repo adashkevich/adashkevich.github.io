@@ -200,9 +200,9 @@
                 }
 
                 if(nAddress.length) {
-                    finalResults.push(street.toLowerCase() + ' ' + nAddress.join(', ') + ';')
+                    finalResults.push(street.trim() + ' ' + nAddress.join(', ') + ';')
                 } else {
-                    finalResults.push(street.toLowerCase() + ';')
+                    finalResults.push(street.trim() + ';')
                 }
             }
         });
