@@ -234,10 +234,8 @@
         let inputs = $(el).find('input');
         if(inputs.length !== 2) return [];
 
-        // let firstValue = +$(inputs.get(0)).val();
-        // let lastValue = +$(inputs.get(1)).val();
-        let firstValue = $(inputs.get(0)).val().trim();
-        let lastValue = $(inputs.get(1)).val().trim();
+        let firstValue = +$(inputs.get(0)).val().replace(/[^0-9]/, '');
+        let lastValue = +$(inputs.get(1)).val().replace(/[^0-9]/, '');
 
         if(!firstValue || !lastValue) return [];
 
@@ -252,8 +250,8 @@
         let inputs = $(el).find('input');
         if(inputs.length !== 2) return [];
 
-        let firstValue = +$(inputs.get(0)).val();
-        let lastValue = +$(inputs.get(1)).val();
+        let firstValue = +$(inputs.get(0)).val().replace(/[^0-9]/, '');
+        let lastValue = +$(inputs.get(1)).val().replace(/[^0-9]/, '');
 
         if(!firstValue || !lastValue) return [];
 
