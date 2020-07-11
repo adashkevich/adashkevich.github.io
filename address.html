@@ -17,6 +17,10 @@
         #result {
             margin-top: 30px;
         }
+
+        .start-from-text, .end-with-text {
+            line-height: 35px;
+        }
     </style>
     <title>Нормализатор адресов</title>
 </head>
@@ -83,11 +87,13 @@
 </template>
 <template id="houseRange">
     <div class="house-form house-range form-group input-group-sm col-4">
-        <label>Дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
+        <label>Дома в промежутке <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
+            <div class="col-1 start-from-text"><p>C</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" placeholder="1">
             </div>
+            <div class="col-1 end-with-text"><p>По</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" placeholder="31">
             </div>
@@ -96,11 +102,13 @@
 </template>
 <template id="houseOdd">
     <div class="house-form house-odd form-group input-group-sm col-4">
-        <label>Чётные дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
+        <label>Чётные дома в промежутке <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
+            <div class="col-1 start-from-text"><p>C</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="2">
             </div>
+            <div class="col-1 end-with-text"><p>По</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="22">
             </div>
@@ -109,11 +117,13 @@
 </template>
 <template id="houseEven">
     <div class="house-form house-even form-group input-group-sm col-4">
-        <label>Нечётные дома в промежутке с ... по ... <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
+        <label>Нечётные дома в промежутке <button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button></label>
         <div class="row">
+            <div class="col-1 start-from-text"><p>C</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="7">
             </div>
+            <div class="col-1 end-with-text"><p>По</p></div>
             <div class="col-3">
                 <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="13">
             </div>
