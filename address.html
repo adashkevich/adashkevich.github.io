@@ -204,6 +204,8 @@
                     nAddress = nAddress.concat($.map(houseOdd, getHouseOdd));
                 }
 
+                nAddress = nAddress.filter(Boolean);
+
                 if(nAddress.length) {
                     finalResults.push(street.trim() + ' ' + nAddress.join(', ') + ';');
                 } else {
