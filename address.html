@@ -21,6 +21,10 @@
         .start-from-text, .end-with-text {
             line-height: 35px;
         }
+
+        .house-delete {
+            font-size: 0.7em;
+        }
     </style>
     <title>Нормализатор адресов</title>
 </head>
@@ -29,6 +33,12 @@
 <div class="container">
     <div id="addressContainer">
         <h3>Нормализатор Адресов</h3>
+
+        <div class="form-group">
+            <!--<label for="addressText">Example textarea</label>-->
+            <textarea class="form-control" id="addressText" rows="3"></textarea>
+        </div>
+
         <form address="0">
             <div class="form-group">
                 <label>Название улицы</label>
