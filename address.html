@@ -9,12 +9,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
+    <style>
+        #addressContainer {
+            margin-top: 30px;
+        }
+
+        #result {
+            margin-top: 30px;
+        }
+    </style>
     <title>Нормализатор адресов</title>
 </head>
 <body>
 
 <div class="container">
     <div id="addressContainer">
+        <h3>Нормализатор Адресов</h3>
         <form address="0">
             <div class="form-group">
                 <label>Название улицы</label>
@@ -25,8 +35,8 @@
             <div class="form-group">
                 <button type="button" class="add-house-numbers btn btn-outline-success btn-sm">Номера домов</button>
                 <button type="button" class="add-house-range btn btn-outline-success btn-sm">Промежуток</button>
-                <button type="button" class="add-house-even btn btn-outline-success btn-sm">Чётные</button>
-                <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Нечётные</button>
+                <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Чётные</button>
+                <button type="button" class="add-house-even btn btn-outline-success btn-sm">Нечётные</button>
                 <button type="button" class="address-delete btn btn-outline-danger btn-sm">Удалить</button>
             </div>
         </form>
@@ -45,15 +55,15 @@
     <form address="${address_index}">
         <div class="form-group">
             <label>Название улицы</label>
-            <input type="email" class="form-control" placeholder="улица Советская">
+            <input name="street" type="text" class="form-control" placeholder="улица Советская">
         </div>
         <div class="row house-container"></div>
 
         <div class="form-group">
-            <button type="button" class="house-numbers btn btn-outline-success btn-sm">Номера домов</button>
-            <button type="button" class="house-range btn btn-outline-success btn-sm">Промежуток</button>
-            <button type="button" class="house-even btn btn-outline-success btn-sm">Чётные</button>
-            <button type="button" class="house-odd btn btn-outline-success btn-sm">Нечётные</button>
+            <button type="button" class="add-house-numbers btn btn-outline-success btn-sm">Номера домов</button>
+            <button type="button" class="add-house-range btn btn-outline-success btn-sm">Промежуток</button>
+            <button type="button" class="add-house-even btn btn-outline-success btn-sm">Чётные</button>
+            <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Нечётные</button>
             <button type="button" class="address-delete btn btn-outline-danger btn-sm">Удалить</button>
         </div>
     </form>
@@ -72,7 +82,7 @@
     </div>
 </template>
 <template id="houseRange">
-    <div class="form-group input-group-sm col-4">
+    <div class="house-range form-group input-group-sm col-4">
         <label>Дома в промежутке с ... по ...</label>
         <div class="row">
             <div class="col-3">
@@ -84,28 +94,28 @@
         </div>
     </div>
 </template>
-<template id="houseEven">
-    <div class="form-group input-group-sm col-4">
+<template id="houseOdd">
+    <div class="house-odd form-group input-group-sm col-4">
         <label>Чётные дома в промежутке с ... по ...</label>
         <div class="row">
             <div class="col-3">
-                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="7">
+                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="2">
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="21">
+                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="22">
             </div>
         </div>
     </div>
 </template>
-<template id="houseOdd">
-    <div class="form-group input-group-sm col-4">
+<template id="houseEven">
+    <div class="house-even form-group input-group-sm col-4">
         <label>Нечётные дома в промежутке с ... по ...</label>
         <div class="row">
             <div class="col-3">
-                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="8">
+                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="7">
             </div>
             <div class="col-3">
-                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="24">
+                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="13">
             </div>
         </div>
     </div>
@@ -161,20 +171,92 @@
     });
 
     $(document).on('click', '#generate', function () {
-        $('#result').empty();
+        let placeholder = $('#result').empty();
+        let finalResults = [];
         $('#addressContainer form').each(function () {
-            let normalizedAddress;
+            let nAddress = [];
             let street = $(this).find('input[name="street"]').val();
+
             if (street) {
-                // normalizedAddress = street;
-                console.log($(this).find('.house-numbers').map(el => getHouseNumbers(el)).join(', '));
+
+                let houseNumbers = $(this).find('.house-numbers');
+                if(houseNumbers.length !== 0) {
+                    nAddress = nAddress.concat($.map(houseNumbers, getHouseNumbers));
+                }
+
+                let houseRange = $(this).find('.house-range');
+                if(houseRange.length !== 0) {
+                    nAddress = nAddress.concat($.map(houseRange, getHouseRange));
+                }
+
+                let houseEven = $(this).find('.house-even');
+                if(houseEven.length !== 0) {
+                    nAddress = nAddress.concat($.map(houseEven, getHouseEven));
+                }
+
+                let houseOdd = $(this).find('.house-odd');
+                if(houseOdd.length !== 0) {
+                    nAddress = nAddress.concat($.map(houseOdd, getHouseOdd));
+                }
+
+                if(nAddress.length) {
+
+                    finalResults.push(street.toLowerCase() + ' ' + nAddress.join(', '))
+                }
             }
         });
+        placeholder.append(finalResults.join('; '))
     });
 
     function getHouseNumbers(el) {
         let regexp = /[^\W,]+/g;
-        return Array.from($(el).find('input').val().matchAll(regexp), x => x[0])
+        return Array.from($(el).find('input').val().matchAll(regexp), x => x[0]).join(', ');
+    }
+
+    function getHouseRange(el) {
+        let inputs = $(el).find('input');
+        if(inputs.length !== 2) return [];
+
+        let firstValue = +$(inputs.get(0)).val();
+        let lastValue = +$(inputs.get(1)).val();
+
+        if(!firstValue || !lastValue) return [];
+
+        if(firstValue > lastValue) return [];
+
+        return `${firstValue}-${lastValue}`;
+    }
+
+    function getHouseEven(el) {
+        let inputs = $(el).find('input');
+        if(inputs.length !== 2) return [];
+
+        let firstValue = +$(inputs.get(0)).val();
+        let lastValue = +$(inputs.get(1)).val();
+
+        if(!firstValue || !lastValue) return [];
+
+        if(firstValue > lastValue) return [];
+
+        if(firstValue % 2 !== 1 || lastValue % 2 !== 1) return []
+
+        return `(${firstValue}-${lastValue})`;
+    }
+
+    function getHouseOdd(el) {
+        let inputs = $(el).find('input');
+        if(inputs.length !== 2) return [];
+
+        let firstValue = +$(inputs.get(0)).val();
+        let lastValue = +$(inputs.get(1)).val();
+
+        if(!firstValue || !lastValue) return [];
+
+        if(firstValue > lastValue) return [];
+
+        if(firstValue % 2 !== 0 || lastValue % 2 !== 0) return []
+
+        return `(${firstValue}-${lastValue})`;
     }
 </script>
 </body>
