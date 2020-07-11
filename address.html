@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Нормализатор адресов</title>
+</head>
+<body>
+
+<div class="container">
+    <div id="addressContainer">
+        <form address="0">
+            <div class="form-group">
+                <label>Название улицы</label>
+                <input name="street" type="text" class="form-control" placeholder="улица Советская">
+            </div>
+            <div class="row house-container"></div>
+
+            <div class="form-group">
+                <button type="button" class="add-house-numbers btn btn-outline-success btn-sm">Номера домов</button>
+                <button type="button" class="add-house-range btn btn-outline-success btn-sm">Промежуток</button>
+                <button type="button" class="add-house-even btn btn-outline-success btn-sm">Чётные</button>
+                <button type="button" class="add-house-odd btn btn-outline-success btn-sm">Нечётные</button>
+                <button type="button" class="address-delete btn btn-outline-danger btn-sm">Удалить</button>
+            </div>
+        </form>
+    </div>
+
+    <button type="button" id="addNewAddress" class="btn btn-outline-primary">Добавить улицу</button>
+    <button type="button" id="generate" class="btn btn-outline-success">Нормализировать</button>
+
+    <div id="result" class="alert alert-success" role="alert">
+    </div>
+</div>
+
+
+
+<template id="newStreet">
+    <form address="${address_index}">
+        <div class="form-group">
+            <label>Название улицы</label>
+            <input type="email" class="form-control" placeholder="улица Советская">
+        </div>
+        <div class="row house-container"></div>
+
+        <div class="form-group">
+            <button type="button" class="house-numbers btn btn-outline-success btn-sm">Номера домов</button>
+            <button type="button" class="house-range btn btn-outline-success btn-sm">Промежуток</button>
+            <button type="button" class="house-even btn btn-outline-success btn-sm">Чётные</button>
+            <button type="button" class="house-odd btn btn-outline-success btn-sm">Нечётные</button>
+            <button type="button" class="address-delete btn btn-outline-danger btn-sm">Удалить</button>
+        </div>
+    </form>
+</template>
+
+<!--<button type="button" class="house-delete btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>-->
+
+<template id="houseNumbers">
+    <div class="house-numbers form-group input-group-sm col-4">
+        <label>Дома:</label>
+        <div class="row">
+            <div class="col-12">
+                <input name="houseNumbers" type="text" class="form-control" placeholder="1 2 3a">
+            </div>
+        </div>
+    </div>
+</template>
+<template id="houseRange">
+    <div class="form-group input-group-sm col-4">
+        <label>Дома в промежутке с ... по ...</label>
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" placeholder="1">
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" placeholder="31">
+            </div>
+        </div>
+    </div>
+</template>
+<template id="houseEven">
+    <div class="form-group input-group-sm col-4">
+        <label>Чётные дома в промежутке с ... по ...</label>
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="7">
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" pattern="^\d*[02468]$" placeholder="21">
+            </div>
+        </div>
+    </div>
+</template>
+<template id="houseOdd">
+    <div class="form-group input-group-sm col-4">
+        <label>Нечётные дома в промежутке с ... по ...</label>
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="8">
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" pattern="^\d*[13579]$" placeholder="24">
+            </div>
+        </div>
+    </div>
+</template>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/80d78395ec.js" crossorigin="anonymous"></script>
+<script>
+    let lastAddressIndex = 1;
+
+    $(document).on('click', '.address-delete', function () {
+        let addressIndex = $(this).closest('form').attr('address');
+        $(`form[address="${addressIndex}"]`).remove();
+    });
+
+    $(document).on('click', '#addNewAddress', function () {
+        let addressTemplate = $('template#newStreet').html().replace('${address_index}', lastAddressIndex++);
+        $('#addressContainer').append(addressTemplate);
+    });
+
+    $(document).on('click', '.add-house-numbers', function () {
+        let addressIndex = $(this).closest('form').attr('address');
+        let houseTemplate = $('template#houseNumbers').html();
+        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+    });
+
+
+    $(document).on('click', '.add-house-range', function () {
+        let addressIndex = $(this).closest('form').attr('address');
+        let houseTemplate = $('template#houseRange').html();
+        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+    });
+
+    $(document).on('click', '.add-house-even', function () {
+        let addressIndex = $(this).closest('form').attr('address');
+        let houseTemplate = $('template#houseEven').html();
+        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+    });
+
+    $(document).on('click', '.add-house-odd', function () {
+        let addressIndex = $(this).closest('form').attr('address');
+        let houseTemplate = $('template#houseOdd').html();
+        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+    });
+
+    $(document).on('click', '#generate', function () {
+        $('#result').empty();
+        $('#addressContainer form').each(function () {
+            let normalizedAddress;
+            let street = $(this).find('input[name="street"]').val();
+            if (street) {
+                // normalizedAddress = street;
+                console.log($(this).find('.house-numbers').map(el => getHouseNumbers(el)).join(', '));
+            }
+        });
+    });
+
+    function getHouseNumbers(el) {
+        let regexp = /[^\W,]+/g;
+        $(el).find('input').val().matchAll(regexp).map(v => v[0]);
+    }
+</script>
+</body>
+</html>
