@@ -200,13 +200,12 @@
                 }
 
                 if(nAddress.length) {
-                    finalResults.push(street.toLowerCase() + ' ' + nAddress.join(', ') + ';')
-                } else {
-                    finalResults.push(street.toLowerCase() + ';')
+
+                    finalResults.push(street.toLowerCase() + ' ' + nAddress.join(', '))
                 }
             }
         });
-        placeholder.append(finalResults.join(' '))
+        placeholder.append(finalResults.join('; '))
     });
 
     function getHouseNumbers(el) {
@@ -218,14 +217,12 @@
         let inputs = $(el).find('input');
         if(inputs.length !== 2) return [];
 
-        // let firstValue = +$(inputs.get(0)).val();
-        // let lastValue = +$(inputs.get(1)).val();
-        let firstValue = $(inputs.get(0)).val().trim();
-        let lastValue = $(inputs.get(1)).val().trim();
+        let firstValue = +$(inputs.get(0)).val();
+        let lastValue = +$(inputs.get(1)).val();
 
         if(!firstValue || !lastValue) return [];
 
-        // if(firstValue > lastValue) return [];
+        if(firstValue > lastValue) return [];
 
         return `${firstValue}-${lastValue}`;
     }
@@ -234,16 +231,14 @@
         let inputs = $(el).find('input');
         if(inputs.length !== 2) return [];
 
-        // let firstValue = +$(inputs.get(0)).val();
-        // let lastValue = +$(inputs.get(1)).val();
-        let firstValue = $(inputs.get(0)).val().trim();
-        let lastValue = $(inputs.get(1)).val().trim();
+        let firstValue = +$(inputs.get(0)).val();
+        let lastValue = +$(inputs.get(1)).val();
 
         if(!firstValue || !lastValue) return [];
 
         if(firstValue > lastValue) return [];
 
-        if(firstValue % 2 !== 1 || lastValue % 2 !== 1) return [];
+        if(firstValue % 2 !== 1 || lastValue % 2 !== 1) return []
 
         return `(${firstValue}-${lastValue})`;
     }
@@ -259,7 +254,7 @@
 
         if(firstValue > lastValue) return [];
 
-        if(firstValue % 2 !== 0 || lastValue % 2 !== 0) return [];
+        if(firstValue % 2 !== 0 || lastValue % 2 !== 0) return []
 
         return `(${firstValue}-${lastValue})`;
     }
