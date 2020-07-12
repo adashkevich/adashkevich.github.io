@@ -44,7 +44,7 @@
             min-width: 160px;
         }
 
-        .house-range input {
+        .house-range input, .house-odd input, .house-even input {
             width: 20px;
             min-width: 20px;
             max-width: 40px;
@@ -164,32 +164,42 @@
 
     $(document).on('click', '#addNewAddress', function () {
         let addressTemplate = $('template#newStreet').html().replace('${address_index}', lastAddressIndex++);
-        $('#addressContainer').append(addressTemplate);
+        let $address = $(addressTemplate);
+        $address.find('input').autosizeInput();
+        $('#addressContainer').append($address);
     });
 
     $(document).on('click', '.add-house-numbers', function () {
         let addressIndex = $(this).closest('form').attr('address');
         let houseTemplate = $('template#houseNumbers').html();
-        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+        let $house = $(houseTemplate);
+        $house.find('input').autosizeInput();
+        $(`form[address="${addressIndex}"] .house-container`).append($house);
     });
 
 
     $(document).on('click', '.add-house-range', function () {
         let addressIndex = $(this).closest('form').attr('address');
         let houseTemplate = $('template#houseRange').html();
-        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+        let $house = $(houseTemplate);
+        $house.find('input').autosizeInput();
+        $(`form[address="${addressIndex}"] .house-container`).append($house);
     });
 
     $(document).on('click', '.add-house-even', function () {
         let addressIndex = $(this).closest('form').attr('address');
         let houseTemplate = $('template#houseEven').html();
-        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+        let $house = $(houseTemplate);
+        $house.find('input').autosizeInput();
+        $(`form[address="${addressIndex}"] .house-container`).append($house);
     });
 
     $(document).on('click', '.add-house-odd', function () {
         let addressIndex = $(this).closest('form').attr('address');
         let houseTemplate = $('template#houseOdd').html();
-        $(`form[address="${addressIndex}"] .house-container`).append(houseTemplate);
+        let $house = $(houseTemplate);
+        $house.find('input').autosizeInput();
+        $(`form[address="${addressIndex}"] .house-container`).append($house);
     });
 
     $(document).on('click', '#generate', function () {
