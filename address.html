@@ -260,7 +260,7 @@
     });
 
     function getHouseNumbers(el) {
-        let regexp = /[^\W,]+/g;
+        let regexp = /[^ ,\t]+/g;
         return Array.from($(el).find('input').val().matchAll(regexp), x => x[0]).join(', ');
     }
 
